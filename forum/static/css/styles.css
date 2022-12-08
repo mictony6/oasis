@@ -1,3 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+
+}
+
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+header {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid grey 1px;
+    z-index: 20;
+}
+
+
+
+.title {
+    display: flex;
+    flex-flow: column wrap;
+    font-weight: bold;
+    font-size: 24px;
+    flex-grow: 1;
+
+}
+
+.nav {
+    flex-grow: 9;
+    display: flex;
+    justify-items: end;
+    justify-content: flex-end;
+    font-size: 17px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .socials {
     display: flex;
     flex-direction: column;
