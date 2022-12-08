@@ -10,8 +10,6 @@ class ForumUser(User):
         verbose_name = "forumuser"
         verbose_name_plural = "forumusers"
 
-    def __str__(self):
-        return self.name
 
     def get_absolute_url(self):
         return reverse("forumuser_detail", kwargs={"pk": self.pk})
@@ -30,9 +28,6 @@ class Post(models.Model):
         verbose_name = "Post"
         verbose_name_plural = "Posts"
 
-    def __str__(self):
-        return self.name
-
     def get_absolute_url(self):
         return reverse("Post_detail", kwargs={"pk": self.pk})
 
@@ -41,3 +36,10 @@ class Category(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
+    def get_absolute_url(self):
+        return reverse("Category_detail", kwargs={"pk": self.pk})
