@@ -4,6 +4,7 @@
 Safe space forum for women in the academe.
 # Guide
 Html - templates are in forums/templates.
+
 Css - forums/static/css
 
 ## Running Tests
