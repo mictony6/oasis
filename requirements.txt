@@ -1,12 +1,7 @@
 asgiref==3.5.2
-autopep8==1.6.0
-cffi==1.15.1
-Django==4.0.6
-pip-autoremove @ git+https://github.com/imba-tjd/pip-autoremove@aaaf6240a09ed5820cb26b1e7507d55944a9cc75
-pycodestyle==2.8.0
-pycparser==2.21
-pygame==2.1.2
-pymunk==6.2.1
-sqlparse==0.4.2
-toml==0.10.2
-tzdata==2022.1
+autopep8==2.0.0
+Django==4.1.4
+pycodestyle==2.10.0
+sqlparse==0.4.3
+tomli==2.0.1
+tzdata==2022.7
