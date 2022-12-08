@@ -1,13 +1,15 @@
 {% load static %}
-
+<a href="{% url 'home' %}" ><img id="logo" src="{% static 'images/logo.svg' %}" type="image/svg+xml"></a>
 <div class="title">
     Oasis
 </div>
 <div class="nav">
     <ul>
-        <li><a href="">Forums</a></li>
-        <li><a href="">Counselling</a></li>
-        <li><a href="">About</a></li>
+        <li><a href="{% url 'home' %}">Community</a></li>
+        <li><a href="">Look for Support</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Helplines</a></li>
     </ul>
 
 

@@ -20,7 +20,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    width: 100%;
     min-height: 100%;
 }
 
@@ -28,12 +28,14 @@ header {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     border: solid grey 1px;
     z-index: 20;
+    flex-grow: 1;
 }
 
 .right {
+    flex-grow: 1;
     border: solid grey 1px;
 
 }
@@ -44,19 +46,20 @@ header {
     flex-flow: column wrap;
     font-weight: bold;
     font-size: 24px;
-    flex-grow: 1;
 
 }
 
 .nav {
-    flex-grow: 9;
     display: flex;
     justify-items: end;
     justify-content: flex-end;
     font-size: 17px;
 
 }
+.main {
+    flex-grow: 2;
 
+}
 .centered {
     margin: 1% 5%;
     width: 90%;

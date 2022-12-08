@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 from django.contrib import admin
-from forum.models import ForumUser, Post, Category
+from forum.models import ForumUser, Post, Category, Comment
 
 
 class ForumAdmin(admin.ModelAdmin):
@@ -13,3 +13,14 @@ class ForumAdmin(admin.ModelAdmin):
 admin.site.register(ForumUser, ForumAdmin)
 admin.site.register(Post, ForumAdmin)
 admin.site.register(Category, ForumAdmin)
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('user', 'body', 'post', 'created_on', 'active')
+    list_filter = ('active', 'created_on')
+    search_fields = ('user',  'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)

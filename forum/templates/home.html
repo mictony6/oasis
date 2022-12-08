@@ -3,14 +3,20 @@
 
 {% block content %}
 
-<div class="searchbar"></div>
-<div class="centered">
+<div class="main centered">
+    <form action="{% url 'new_post' %}">
+        <button type="submit" >New Discussion</button>
+    </form>
     <h2>Discussions</h2>
 
     <div class="thread-list">
         {% for post in posts %}
         <div class="thread">
             <h3 class="topic">{{ post.title }}</h3>
+            {% for category in post.category.all %}
+            <h4 class="category">Categories: {{ category.title }}</h4>
+            {%  endfor %}
+            <h4 class="author">@{{ post.user.username }}</h4>
             <p class="text">{{ post.content }}</p>
             <div class="stats">Comments - 69 </div>
         </div>
@@ -20,6 +26,6 @@
 </div>
 
 <div class="right">
-    <h2>Must have something here/</h2>
+    <h2>Contacts</h2>
 </div>
 {% endblock%}
