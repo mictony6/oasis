@@ -33,6 +33,10 @@ header {
     z-index: 20;
 }
 
+.right {
+    border: solid grey 1px;
+
+}
 
 
 .title {
@@ -51,6 +55,11 @@ header {
     justify-content: flex-end;
     font-size: 17px;
 
+}
+
+.centered {
+    margin: 1% 5%;
+    width: 90%;
 }
 
 
