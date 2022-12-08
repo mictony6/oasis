@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-crik1@$het#bvd#88g6#%kf4juk#v_dm)#sl4o8o+11)efj%dn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'https://safespace-oasis.azurewebsites.net/']
 
 
 # Application definition
