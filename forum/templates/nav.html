@@ -1,17 +1,27 @@
 {% load static %}
 <header>
-<a href="{% url 'home' %}" ><img id="logo" src="{% static 'images/logo.svg' %}" type="image/svg+xml"></a>
-<div class="title">
-    Oasis
-</div>
-<div class="nav">
-    <ul>
-        <li><a href="{% url 'home' %}">Community</a></li>
-        <li><a href="">Look for Support</a></li>
-        <li><a href="">Blog</a></li>
-        <li><a href="">About Us</a></li>
-        <li><a href="">Helplines</a></li>
-    </ul>
-
-</div>
+    <div class="title">
+        <div>
+    <a href="{% url 'home' %}" ><img id="logo" src="{% static 'images/logo.svg' %}" type="image/svg+xml"></a>
+            <p>Oasis</p>
+        </div>
+        <div class="tagline">tagline here</div>
+    </div>
+    <div class="nav">
+        <ul>
+            <li><a href="{% url 'home' %}">Community</a></li>
+            <li><a href="">Look for Support</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Helplines</a></li>
+        </ul>
+    </div>
+    <div class="site-helpline">
+        <div class="gradient-box">
+            <h3>24/7 Helpline</h3>
+            <p>Always to help you.</p>
+            <button id="contact-button">Contact</button>
+        </div>
+        <img id="helpline-pic" src="{% static 'images/telephone.svg'  %}" >
+    </div>
 </header>

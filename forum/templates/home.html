@@ -2,23 +2,43 @@
 {% load static %}
 
 {% block content %}
-
-<div class="main centered">
-    <form action="{% url 'new_post' %}">
-        <button type="submit" >New Discussion</button>
-    </form>
-    <h2>Discussions</h2>
+<div class=" main centered">
+    <div id="new-post">
+        <a class="  fake-input" href="{% url 'new_post' %}">
+            <input class="rounded personal" type="text" value="What are you thinkin?">
+        </a>
+        <a id="new-post-button" href="{% url 'new_post' %}">+</a>
+    </div>
 
     <div class="thread-list">
         {% for post in posts %}
-        <div class="thread">
-            <h3 class="topic">{{ post.title }}</h3>
-            {% for category in post.category.all %}
-            <h4 class="category">Categories: {{ category.title }}</h4>
-            {%  endfor %}
-            <h4 class="author">@{{ post.user.username }}</h4>
-            <p class="text">{{ post.content }}</p>
-            <div class="stats">Comments - 69 </div>
+
+        <div class="rounded post">
+            <div class="post-top">
+                <div class="post-author">
+                    <div class="user-image">
+                        <img src="{% static 'images/profile_pic_placeholder.svg' %}">
+                    </div>
+                    <h4 class="post-username">@{{ post.user.username }}</h4>
+                    <p class="post-time">{{ post.get_date}}</p>
+                </div>
+                <div class="post-content">
+                    <p class="post-title">{{ post.title }}</p>
+                    {% for category in post.category.all %}
+{#                    <h4 class="category">Categories: {{ category.title }}</h4>#}
+                    {%  endfor %}
+                    <p class="post-text">{{ post.content }}</p>
+                </div>
+            </div>
+            <div class="post-bottom">
+                <img class="post-actions" src="{% static 'images/icons.svg' %}">
+
+                <div class="comment-box">
+                    <form>
+                        <input class="rounded personal" type="text" value="What are your thoughts?">
+                    </form>
+                </div>
+            </div>
         </div>
         {% endfor %}
 
@@ -29,3 +49,7 @@
     <h2>Contacts</h2>
 </div>
 {% endblock%}
+
+{% block script %}
+    <script src="{% static 'js/home.js' %}"></script>
+{%  endblock %}

@@ -9,6 +9,7 @@ def home_view(request, *args, **kwargs):
     context = {
         'posts': Post.objects.all(),
     }
+    print(context['posts'][0].date)
     return render(request, 'home.html', context)
 
 

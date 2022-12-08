@@ -1,4 +1,5 @@
 # Create your models here.
+from django.contrib.humanize.templatetags import humanize
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -34,6 +35,9 @@ class Post(models.Model):
     content = models.TextField(blank=False)
     date = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(ForumUser, related_name="likes", blank=True)
+
+    def get_date(self):
+        return humanize.naturaltime(self.date)
 
     class Meta:
         verbose_name = "Post"
