@@ -25,3 +25,5 @@ To debug, run the following command
   python manage.py runserver
 ```
 
+# Database Schema
+![Database Schema](DatabaseSchema.png)
