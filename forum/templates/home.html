@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class=" main centered">
+<div class=" main ">
     <div id="new-post">
         <a class="  fake-input" href="{% url 'new_post' %}">
             <input class="rounded personal" type="text" value="What are you thinkin?">
@@ -10,10 +10,10 @@
         <a id="new-post-button" href="{% url 'new_post' %}">+</a>
     </div>
 
-    <div class="thread-list">
+    <div class="thread-list ">
         {% for post in posts %}
 
-        <div class="rounded post">
+        <div class="rounded post ">
             <div class="post-top">
                 <div class="post-author">
                     <div class="user-image">
@@ -31,7 +31,10 @@
                 </div>
             </div>
             <div class="post-bottom">
-                <img class="post-actions" src="{% static 'images/icons.svg' %}">
+                <div class="post-actions">
+                    <img src="{% static "images/love.svg" %}">
+                    <img src="{% static "images/comment.svg" %}">
+                </div>
 
                 <div class="comment-box">
                     <form>
@@ -46,7 +49,51 @@
 </div>
 
 <div class="right">
-    <h2>Contacts</h2>
+    <div class="right-contacts-panel">
+        <h2>Contacts</h2>
+        <div class="scrollbar-wrapper rounded personal">
+        <div class="contact-list  ">
+            <div class="contact-item">
+                <a href="#urltoprofile"><img src="{% static 'images/profile1.svg' %}"></a>
+                <a href="#urltoprofile">@username</a>
+                <a href="#urltomessage"><img src="{% static 'images/message.svg' %}"></a>
+                <a href="#urltocall"><img src="{% static 'images/call.svg' %}"></a>
+            </div>
+            <div class="contact-item">
+                <a href="#urltoprofile"><img src="{% static 'images/profile1.svg' %}"></a>
+                <a href="#urltoprofile">@username</a>
+                <a href="#urltomessage"><img src="{% static 'images/message.svg' %}"></a>
+                <a href="#urltocall"><img src="{% static 'images/call.svg' %}"></a>
+            </div>
+            <div class="contact-item">
+                <a href="#urltoprofile"><img src="{% static 'images/profile1.svg' %}"></a>
+                <a href="#urltoprofile">@username</a>
+                <a href="#urltomessage"><img src="{% static 'images/message.svg' %}"></a>
+                <a href="#urltocall"><img src="{% static 'images/call.svg' %}"></a>
+            </div>
+            <div class="contact-item">
+                <a href="#urltoprofile"><img src="{% static 'images/profile1.svg' %}"></a>
+                <a href="#urltoprofile">@username</a>
+                <a href="#urltomessage"><img src="{% static 'images/message.svg' %}"></a>
+                <a href="#urltocall"><img src="{% static 'images/call.svg' %}"></a>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    <div class="right-blogs-panel">
+        <h2>Featured Blogs</h2>
+        <div class="blog-preview ">
+            <img class="article-image" src="{% static 'images/blog-image-sample.png' %}">
+            <div class="article-content">
+                <h2 class="article-title">article title</h2>
+                <p class="article-detail">BY NAME/ DECEMBER 2, 2022</p>
+                <p class="article-description">
+                    Lorem ipsum dolor sit amet. Vel omnis ipsa sit nulla galisum aut delectus facere. Est repudiandae voluptas hic exercitationem totam et voluptas eligendi aut illo debitis et eveniet animi.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock%}
 
