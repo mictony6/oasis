@@ -5,16 +5,73 @@
 {% block content %}
     <div class="main">
 {#    add html here for the main content#}
-    This is in the center.
+    <div class="counselling-label">connect with our therapists</div>
+        <div class="sorting">
+            <label for="sort-type">Sort by:</label>
+            <select class = "rounded personal" name="sort-type" id="sort-type">
+              <option value="video_call">Video Call</option>
+              <option value="live_chat">Live Chat</option>
+            </select>
+        </div>
+
+
+        <div class="therapist-list">
+            {% for person in therapists %}
+            <div class="rounded card three-column">
+                <div class="therapist-details ">
+                    <img alt="sdsds" src="{% static 'images/profile1.svg' %}">
+                    <section class="centered">
+                    <a href="#linktofb"><img src="{% static 'images/facebook.svg' %}" alt="facebook"></a>
+                    <a href="#linktotwt"><img src="{% static 'images/twitter.svg' %}" alt="twitter"></a>
+                    <a href="#linktoln"><img src="{% static 'images/linkedin.svg' %}" alt="linkedin"></a>
+                    </section>
+                </div>
+                <div class="therapist-content">
+                    <h2>{{  person.name }}</h2>
+                    <p id="subtle">{{  person.area }}</p>
+                    <p>{{ person.bio }}</p>
+                </div>
+                <div class="therapist-contact">
+                    <div class="date-label">
+                        <img alt="calendar icon" src="{% static 'images/calendar.svg' %}">
+                        <div id="date-available">
+                            <p>{{ person.day_available }}</p>
+                            <label>Video Call</label>
+                        </div>
+                    </div>
+
+                    <div class="centered time-list">
+                        <a>10:00 am</a>
+                        <a>2:00 pm</a>
+                        <a>6:100 pm</a>
+                    </div>
+                    <a id="book-button" href="booknow">Book Now</a>
+
+                </div>
+
+            </div>
+            {%  endfor %}
+        </div>
+
+
 
     </div>
     <div class="right">
 {#    add html here for right panel#}
-    This is at the right panel.
+        <div class="hotline-label centered"> VAWC Hotlines</div>
+        <div class="hotline-list">
+            {% for hotline in hotlines %}
+                <div class="hotline-item">
+                    <div class="hotline-name">{{ hotline.name }}</div>
+                    <div class="hotline-address">{{ hotline.address }}</div>
+                    <div class="hotline-number">{{ hotline.number }}</div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {%  endblock content %}
 
 
 {% block script %}
-    <script src="{% static 'js/about.js' %}"></script>
+    <script src="{% static 'js/counselling.js' %}"></script>
 {% endblock script %}

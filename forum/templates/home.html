@@ -8,19 +8,26 @@
             <input class="rounded personal" type="text" value="What are you thinkin?">
         </a>
         <a id="new-post-button" href="{% url 'new_post' %}">+</a>
-        <a id="user-profile" href="urltoprofile" ><img  src="{% static 'images/profile.svg' %}"></a>
+        <div id="user-profile"  ><img  src="{% static 'images/profile.svg' %}">
+            <div id="profile-dropdown">
+                <div><a href="#path">Profile</a></div>
+                <div><a href="#path">Settings</a></div>
+                <div><a href="{% url 'logout' %}">Logout</a></div>
+            </div>
+        </div>
+
     </div>
-    <div class="sorting"
-        <label for="cars">Sort by:</label>
+    <div class="sorting">
+        <label for="sort-type">Sort by:</label>
         <select class = "rounded personal" name="sort-type" id="sort-type">
-          <option value="by recent">Recent</option>
-          <option value="top post">Top</option>
+          <option value="date">Recent</option>
+          <option value="likes">Top</option>
         </select>
     </div>
     <div class="thread-list ">
         {% for post in posts %}
 
-        <div class="rounded post ">
+        <div class="rounded card ">
         <a href="path/to/post" class="expand-button">
             <img src="{%  static 'images/exapnd.svg' %}">
         </a>

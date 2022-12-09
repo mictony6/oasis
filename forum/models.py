@@ -60,3 +60,21 @@ class Comment(models.Model):
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.user.get_username())
 
+
+class Therapist(models.Model):
+    specialties = (
+        ('s1', 'specialty1'),
+        ('s2', 'specialty2'),
+    )
+
+    area = models.TextField(choices=specialties)
+    name = models.CharField(max_length=128)
+    email = models.EmailField()
+    day_available = models.DateField()
+    bio = models.TextField()
+
+
+class Hotline(models.Model):
+    name = models.CharField(max_length=128, blank=False)
+    address = models.TextField()
+    number = models.CharField(max_length=24)

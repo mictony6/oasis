@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800');
+
+* {
+	box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --darkblue: #B9CBD9;
+    --pink: #FCC9C5;
+    --lightpink: #FEDDD8;
+    --skyblue: #CFE3E2;
+    --text: #3A3530;
+}
+
+body {
+	overflow: hidden;
+    background-image: url("../images/bg1.png");
+	/* background: linear-gradient(101.52deg, #B5CFE3 6.78%, #E5D8DC 58.61%, #FEDDD8 104.46%); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
+
+.description {
+	text-align: center;
+	margin-top: 55px;
+	position: fixed;
+	font-size: 15px;
+}
+
+.button {
+	position: fixed;
+    margin-top: 200px;
+	border-radius: 20px;
+    border-color: white;
+	background-color: var(--darkblue);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+}
+
+
+.button:hover {
+	position: fixed;
+    margin-top: 200px;
+	border-radius: 20px;
+    border-color: white;
+	background-color: var(--pink);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+}
+
+
+
+a {
+	text-decoration: none;
+	color: var(--text);
+}
+
+form {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: rgba(255, 255, 255, .15);  
+	backdrop-filter: blur(5px);
+	border-radius: 10px;
+    border-color: white;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+	
+}
+
+.typewrite {
+	display: flex;
+	align-items: center;
+	color: white;
+	font-size: 40px;
+	width: 100%;
+}
+
+.sign-up {
+    font-weight: 600;
+	margin: 0;
+    color: white;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	width: 400px;
+    min-height: 100px;
+	padding-bottom: 90px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+}
+
+
+
+

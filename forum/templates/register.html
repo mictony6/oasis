@@ -1,0 +1,42 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>oasis</title>
+  <link rel="icon" type="image/logo" href="">
+  <link rel="stylesheet" type="text/css" href="{%  static 'css/register.css' %}">
+</head>
+<body>
+
+<div class="container" id="container">
+<form  method="post">
+    {% csrf_token %}
+      {{form.username}}
+      {% for error in form.username.errors %}
+      <p class="warning" >{{ error }}</p>
+      {% endfor %}
+
+      <small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+      {{form.password1}}
+      {% for error in form.password1.errors %}
+      <p class="warning">{{ error }}</p>
+      {% endfor %}
+
+
+      {{form.password2}}
+      {% for error in form.password2.errors %}
+      <p class="warning">{{ error }}</p>
+      {% endfor %}
+      <small>Enter the same password as before, for verification. </small>
+    <a href="{%  url 'login' %}"><p>Already have an account?</p></a>
+    <button  type="submit">Sign Up</button>
+  </form>
+
+</div>
+
+
+</body>
+</html>
+
+
+

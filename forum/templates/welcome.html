@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>oasis</title>
+  <link rel="icon" type="image/logo" href="">
+  <link rel="stylesheet" type="text/css" href="{%  static 'css/welcome.css' %}">
+</head>
+<body>
+
+
+<div class="container" id="container">
+	<h1>
+		<a href="" class="typewrite" data-period="2000" data-type='[ "share stories.", "seek refuge.", "find solace.", "you are safe here." ]'>
+		  <span class="wrap"></span>
+		</a>
+	</h1>
+
+
+</div>
+
+<p class="description">
+	A safe space for women to come together—an oasis for their thoughts, experiences, <br>
+	and sufferings to be validated and given support.
+</p>
+<a href="{% url 'register' %}" class="button">get started</a>
+
+<script src="{%  static 'js/welcome.js' %}"></script>
+</body>
+</html>
