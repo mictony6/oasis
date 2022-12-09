@@ -22,3 +22,10 @@ def new_post_view(request, *args, **kwargs):
         'form': form,
     }
     return render(request, 'new_post.html', context)
+
+
+def about_view(request, *args, **kwargs):
+    context = {
+
+    }
+    return render(request, 'about.html', context)

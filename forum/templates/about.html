@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="main">
+{#    add html here for the main content#}
+    This is in the center.
+
+    </div>
+    <div class="right">
+{#    add html here for right panel#}
+    This is at the right panel.
+    </div>
+{%  endblock content %}
+
+
+{% block script %}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock script %}
