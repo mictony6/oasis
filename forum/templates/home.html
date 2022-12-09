@@ -10,11 +10,20 @@
         <a id="new-post-button" href="{% url 'new_post' %}">+</a>
         <a id="user-profile" href="urltoprofile" ><img  src="{% static 'images/profile.svg' %}"></a>
     </div>
-
+    <div class="sorting"
+        <label for="cars">Sort by:</label>
+        <select class = "rounded personal" name="sort-type" id="sort-type">
+          <option value="by recent">Recent</option>
+          <option value="top post">Top</option>
+        </select>
+    </div>
     <div class="thread-list ">
         {% for post in posts %}
 
         <div class="rounded post ">
+        <a href="path/to/post" class="expand-button">
+            <img src="{%  static 'images/exapnd.svg' %}">
+        </a>
             <div class="post-top">
                 <div class="post-author">
                     <div class="user-image">

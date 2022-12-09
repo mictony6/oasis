@@ -29,3 +29,10 @@ def about_view(request, *args, **kwargs):
 
     }
     return render(request, 'about.html', context)
+
+
+def counselling_view(request, *args, **kwargs):
+    context = {
+
+    }
+    return render(request, 'counselling.html', context)
