@@ -207,6 +207,7 @@ border-radius: 88px;
     display: grid;
     grid-template-columns: 8fr 1fr 1fr;
     align-items: center;
+    justify-items: center;
     height: 64px;
 }
 
@@ -237,6 +238,14 @@ border-radius: 88px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
+}
+
+#user-profile{
+    width: 100%;
+}
+#user-profile img{
+    aspect-ratio: 1/1;
+    width: 60px;
 }
 
 #helpline-pic{
