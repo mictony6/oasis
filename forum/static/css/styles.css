@@ -154,6 +154,14 @@ header {
 }
 .nav li{
     list-style-type: none;
+    padding: 10px;
+}
+
+.nav li:hover{
+
+background: linear-gradient(90deg, #CFE3E2 0%, rgba(255, 255, 255, 0) 111.74%);
+border-radius: 88px;
+
 }
 
 .nav li a{
