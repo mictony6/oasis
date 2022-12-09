@@ -10,27 +10,18 @@ class PostForm(forms.ModelForm):
         fields = [
             'title',
             'category',
-            'content',
+            'content'
         ]
-        # widgets = {
-        #     'title': forms.TextInput(attrs={
-        #         'class': 'centered',
-        #         'placeholder': 'Post Title'
-        #     }),
-        #     'category': forms.SelectMultiple(attrs={
-        #         'class': 'centered',
-        #     }),
-        #
-        #
-        #     'investment': forms.NumberInput(attrs={
-        #         'placeholder': '₱PHP'
-        #     }),
-        #     'details': forms.Textarea(attrs={
-        #         'class': 'details',
-        #         'placeholder': 'Type out specifics here.'
-        #     })
-        #
-        # }
+        widgets = {
+            'title':forms.TextInput(attrs={
+                'type':'text',
+                'placeholder':'Title',
+            }),
+            'content':forms.Textarea(attrs={
+                'placeholder':'Type here...'
+            })
+        }
+
 
 
 class ForumUserForm(UserCreationForm):

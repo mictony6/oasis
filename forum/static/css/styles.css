@@ -325,6 +325,10 @@ header {
 .post-title{
     font-weight: bold;
 }
+
+.post-username{
+    font-weight: 600;
+}
 .post-bottom{
     display: grid;
     grid-template-columns: 2fr 8fr;
@@ -347,8 +351,6 @@ header {
 .post-time{
     font-size: .8rem;
 }
-.post-content{
-}
 
 
 .comment-box .personal{
@@ -356,6 +358,10 @@ header {
     height: 30px;
     padding: 5px 10px;
 
+}
+
+.comment-box input{
+    color:var(--text-color);
 }
 
 
@@ -368,7 +374,6 @@ header {
 .right-contacts-panel{
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
     margin: 10px 0;
     flex-shrink: 1;
 }
@@ -376,7 +381,6 @@ header {
 .contact-list{
     overflow-y: scroll;
     max-height: 150px;
-    padding:5px;
 }
 
 .contact-list::-webkit-scrollbar-track {
@@ -402,7 +406,7 @@ header {
     align-items: center;
     font-weight: 600;
     font-size: 1rem;
-    padding: 10px;
+    margin: 10px;
 
 }
 
@@ -460,6 +464,7 @@ header {
     align-items: center;
     justify-content: center;
 
+
 }
 
 .therapist-details section{
@@ -487,6 +492,7 @@ header {
 
 .therapist-content p{
     text-align: justify;
+    font-size: 0.9rem;
 }
 
 .therapist-contact{
@@ -617,4 +623,39 @@ header {
 
 #profile-dropdown div:hover{
     background-color: white;
+}
+
+
+
+
+/*post view*/
+.post-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.post-text-container {
+  padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;justify-content: center;
+}
+
+.posted-by {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+}
+
+.post-detail{
+
 }

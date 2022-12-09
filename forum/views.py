@@ -1,11 +1,15 @@
+import json
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LogoutView
+from django.core import serializers
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from forum.forms import PostForm, LoginForm, ForumUserForm
-from forum.models import Post, Therapist, Hotline
+from forum.models import Post, Therapist, Hotline, ForumUser
 
 
 def landing_view(request, *args, **kwargs):
@@ -17,22 +21,33 @@ def landing_view(request, *args, **kwargs):
     return render(request, 'welcome.html', context)
 
 
-def home_view(request, *args, **kwargs):
+def home_view(request,  *args, **kwargs):
+    sort_method = request.GET.get("sort_method")
+
     if not request.user.is_authenticated:
         return redirect('landing')
+    if sort_method == "date":
+        posts = Post.objects.all().order_by("date").reverse()
+    else:
+        posts = Post.objects.all().order_by("likes").reverse()
     context = {
-        'posts': Post.objects.all(),
+        'posts': posts,
+        'sort_method':sort_method,
     }
     return render(request, 'home.html', context)
 
 
 def new_post_view(request, *args, **kwargs):
-    if not request.user.is_authenticated:
-        return redirect('landing')
     form = PostForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('home')
+    if request.user.is_authenticated:
+        if form.is_valid():
+            saved = form.save(commit=False)
+            saved.user = request.user.forumuser
+            saved.save()
+            return redirect('home')
+    else:
+        return redirect('landing')
+
     context = {
         'form': form,
     }
@@ -87,3 +102,8 @@ class UserCreateView(CreateView):
     form_class = ForumUserForm
     template_name = "register.html"
     success_url = reverse_lazy('login')
+
+class PostView(DetailView):
+    model = Post
+    template_name = "post.html"
+

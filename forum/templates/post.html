@@ -1,0 +1,33 @@
+{%  extends 'base.html' %}
+{%  block content %}
+    <div class="main centered">
+
+            <div class="post-content-container rounded ">
+                <div class="post-text-container">
+                  <div class="username-container">
+                    <p class="posted-by">Posted by @{{ object.user.username}} {{ object.get_date}}</p>
+                  </div>
+                  <div class="post-title-container">
+                    <p class="post-title">
+                        {{ object.title}}
+                    </p>
+                  </div>
+            </div>
+                <div class="post-detail-container">
+                    <div class="post-detail">
+                       <p> {{ post.content }}</p>
+                    </div>
+                </div>
+                <div class="post-likes-container">
+                    <div class="post-likes">
+                        Likes: {{ object.likes.count }}
+                    </div>
+                </div>
+        </div>
+    </div>
+{%  endblock %}
+
+{%  block script %}
+{%  endblock %}
+
+

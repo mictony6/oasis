@@ -25,7 +25,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def get_absolute_url(self):
-        return reverse("Category_detail", kwargs={"pk": self.pk})
+        return reverse("category", kwargs={"pk": self.pk})
 
 
 class Post(models.Model):
@@ -39,12 +39,13 @@ class Post(models.Model):
     def get_date(self):
         return humanize.naturaltime(self.date)
 
+
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
 
     def get_absolute_url(self):
-        return reverse("Post_detail", kwargs={"pk": self.pk})
+        return reverse("post", kwargs={"pk": self.pk})
 
 
 class Comment(models.Model):
@@ -63,8 +64,8 @@ class Comment(models.Model):
 
 class Therapist(models.Model):
     specialties = (
-        ('s1', 'specialty1'),
-        ('s2', 'specialty2'),
+        ('Psychotherapy', 'Psychotherapy'),
+        ('Economics', 'Economics'),
     )
 
     area = models.TextField(choices=specialties)

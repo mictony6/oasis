@@ -18,17 +18,23 @@
 
     </div>
     <div class="sorting">
+
         <label for="sort-type">Sort by:</label>
         <select class = "rounded personal" name="sort-type" id="sort-type">
-          <option value="date">Recent</option>
+        {% if sort_method == "date" %}
+          <option selected="selected" value="date">Recent</option>
           <option value="likes">Top</option>
+        {% else %}
+          <option value="date">Recent</option>
+          <option selected="selected" value="likes">Top</option>
+        {% endif %}
         </select>
     </div>
     <div class="thread-list ">
         {% for post in posts %}
 
         <div class="rounded card ">
-        <a href="path/to/post" class="expand-button">
+        <a href="{{ post.get_absolute_url }}" class="expand-button">
             <img src="{%  static 'images/exapnd.svg' %}">
         </a>
             <div class="post-top">
@@ -36,7 +42,7 @@
                     <div class="user-image">
                         <img src="{% static 'images/profile_pic_placeholder.svg' %}">
                     </div>
-                    <h4 class="post-username">@{{ post.user.username }}</h4>
+                    <p class="post-username">@{{ post.user.username }}</p>
                     <p class="post-time">{{ post.get_date}}</p>
                 </div>
                 <div class="post-content">
@@ -55,7 +61,7 @@
 
                 <div class="comment-box">
                     <form>
-                        <input class="rounded personal" type="text" value="What are your thoughts?">
+                        <input class="rounded personal" type="text" placeholder="What are your thoughts?">
                     </form>
                 </div>
             </div>

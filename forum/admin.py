@@ -6,13 +6,19 @@ from django.contrib import admin
 from forum.models import ForumUser, Post, Category, Comment, Therapist, Hotline
 
 
+@admin.register(ForumUser)
 class ForumAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('username', 'email')
+    search_fields = ('username', 'email')
 
 
-admin.site.register(ForumUser, ForumAdmin)
-admin.site.register(Post, ForumAdmin)
-admin.site.register(Category, ForumAdmin)
+admin.site.register(Category)
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'content', 'date')
+    list_filter = ('user', 'date', 'category')
 
 
 @admin.register(Comment)
