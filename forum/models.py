@@ -33,7 +33,7 @@ class Post(models.Model):
     category = models.ManyToManyField(Category, related_name="categories", blank=True)
     user = models.ForeignKey(ForumUser, on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(max_length=90)
-    content = models.TextField(blank=False)
+    content = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(ForumUser, related_name="likes", blank=True)
 
@@ -55,7 +55,6 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 
-
     class Meta:
         ordering = ['created_on']
 
@@ -64,8 +63,6 @@ class Comment(models.Model):
 
     def get_date(self):
         return humanize.naturaltime(self.created_on)
-
-
 
 
 class Therapist(models.Model):
@@ -88,10 +85,11 @@ class Hotline(models.Model):
 
 
 class BlogPost(models.Model):
-    author = models.ForeignKey(Therapist, on_delete=models.CASCADE, related_name="posts")
+    author = models.CharField(max_length=128)
     title = models.CharField(max_length=90)
     content = models.TextField(blank=False)
     date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(null=True, blank=True)
 
     def get_date(self):
         return humanize.naturaltime(self.date)
@@ -102,3 +100,7 @@ class BlogPost(models.Model):
 
     def get_absolute_url(self):
         return reverse("blogpost", kwargs={"pk": self.pk})
+
+    def delete(self, *args, **kwargs):
+        self.image.storage.delete(self.image.name)
+        return super().delete(*args, **kwargs)

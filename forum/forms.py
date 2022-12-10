@@ -16,9 +16,14 @@ class PostForm(forms.ModelForm):
             'title':forms.TextInput(attrs={
                 'type':'text',
                 'placeholder':'Title',
+                'class':'post-title-input',
             }),
             'content':forms.Textarea(attrs={
-                'placeholder':'Type here...'
+                'placeholder':'Type here...',
+                'class':'post-content-input',
+            }),
+            'category': forms.Select(attrs={
+                'class':'post-category-input'
             })
         }
 

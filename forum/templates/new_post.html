@@ -1,53 +1,31 @@
 {% extends 'base.html' %}
 
-
 {% load static %}
 {% block content %}
-    <div class="main centered">
-    <form method="post">
-        {%  csrf_token %}
-        {{ form.as_p }}
-    <button type="submit">Post</button>
+    <div class="blog-main centered ">
+        <form class="new-post-form" method="post">
+            {%  csrf_token %}
+                <label>Title<br>
+                </label>
 
-    </form>
-{##}
-{#    <!--#}
-{#      Adding the `tinymce-editor` element with various options set as attributes.#}
-{#    -->#}
-{#    <tinymce-editor#}
-{#      api-key="no-api-key"#}
-{#      height="500"#}
-{#      menubar="false"#}
-{#      plugins="a11ychecker advlist advcode advtable autolink checklist export#}
-{#      lists link image charmap preview anchor searchreplace visualblocks#}
-{#      powerpaste fullscreen formatpainter insertdatetime media table help wordcount"#}
-{#      toolbar="undo redo | casechange blocks | bold italic backcolor |#}
-{#       alignleft aligncenter alignright alignjustify | bullist numlist checklist outdent indent |#}
-{#       removeformat | a11ycheck code table help"#}
-{#      content_style="body#}
-{#      {#}
-{#        font-family:Helvetica,Arial,sans-serif;#}
-{#        font-size:14px#}
-{#      }"#}
-{#      >#}
-{##}
-{##}
-{#      <!-- Adding some initial editor content -->#}
-{#      &lt;p&gt;Welcome to the TinyMCE Web Component example!&lt;/p&gt;#}
-{##}
-{#    </tinymce-editor>#}
-{##}
-{##}
-{#    <!--#}
-{#      Sourcing the `tinymce-webcomponent` from jsDelivr,#}
-{#      which sources TinyMCE from the Tiny Cloud.#}
-{#    -->#}
+                    {{ form.title }}
+                <label>
+                    Body<br>
+                </label>
 
+                    {{ form.content }}
+                <label>Category<br>
+                </label>
+
+                    {{ form.category }}
+
+
+            <input type="submit" value="Post">
+
+        </form>
     </div>
 {% endblock content %}
 
 {%  block script %}
     <script src="{%  static 'js/new_post.js' %}"></script>
-{#    <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-webcomponent@1/dist/tinymce-webcomponent.min.js"></script>#}
-
 {%  endblock %}

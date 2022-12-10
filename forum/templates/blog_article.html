@@ -2,7 +2,7 @@
 <div class="blog-article-container">
     <div class="blog-article ">
         <div class="blog-article-image-container">
-            <img class="blog-article-image" alt="thumbnail" src="{%  static 'images/blog_thumbnail.png' %}">
+            <img class="blog-article-image" alt="thumbnail" src="{{ blog.image.url}}">
         </div>
         <div class="blog-article-content-container">
             <div class="blog-article-content">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="article-author-container">
                     <p class="article-author">
-                        {{ blog.author.name }}
+                        {{ blog.author }}
                     </p>
                     <p class="article-time">
                         {{ blog.get_date}}

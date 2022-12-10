@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
 from django.db.models import Count
 from django.shortcuts import redirect, render
@@ -34,21 +35,29 @@ def home_view(request, *args, **kwargs):
     return render(request, 'home.html', context)
 
 
+@login_required
 def new_post_view(request, *args, **kwargs):
     form = PostForm(request.POST or None)
-    if request.user.is_authenticated:
-        if form.is_valid():
-            saved = form.save(commit=False)
-            saved.user = request.user.forumuser
-            saved.save()
-            return redirect('home')
-    else:
-        return redirect('landing')
-
+    if form.is_valid():
+        form.instance.user = request.user.forumuser
+        form.save()
+        return redirect('home')
     context = {
-        'form': form,
+        'form': form
     }
     return render(request, 'new_post.html', context)
+
+
+# class NewPost(CreateView):
+#     model = Post
+#     template_name = 'new_post.html'
+#     success_url = reverse_lazy('home')
+#     fields = ('title', 'content', 'category', 'user')
+#
+#     def form_valid(self, form):
+#         if self.request.user.is_authenticated:
+#             form.instance.user = self.request.user.forumuser
+#         return super().form_valid(form)
 
 
 def about_view(request, *args, **kwargs):
