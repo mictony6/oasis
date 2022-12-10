@@ -875,3 +875,141 @@ header {
 
 
 
+
+/*grid for about page*/
+.about-main{
+
+    position: relative;
+    padding-right: 50px;
+    margin: 50px 10px 50px 270px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: var(--text-color);
+}
+
+.about-main div{
+    /*width: 100%;*/
+}
+
+.about-container * p{
+    text-align: justify;
+}
+.about-container div{
+    /*border: solid 1px grey;*/
+    border-radius: 30px;
+    margin: 10px 0;
+    padding: 0px 20px;
+}
+
+
+
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    grid-template-rows: 1fr 0.1fr repeat(3, 1fr);
+    gap: 10px 20px;
+    grid-auto-flow: row;
+    width: 100%;
+}
+
+.break {
+    grid-area: 2 / 1 / 3 / 4;
+    text-align: center;
+    color: #6A6A6A;
+    padding: 0px 0px !important;
+    margin:  0 0;
+}
+
+.who-we-are-image { grid-area: 1 / 3 / 2 / 4;
+    overflow: hidden;
+    background-image: url("../images/blog_thumbnail.png");
+    background-size: cover;
+
+}
+
+.who-we-are-image img{
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.who-we-are {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: 1 / 1 / 2 / 3;
+    text-align: left;
+
+}
+
+.three-columns { grid-area: 3 / 1 / 4 / 4; }
+
+.mission-image {
+    grid-area: 4 / 1 / 5 / 2;
+    background-image: url("../images/blog_thumbnail.png");
+    background-size: cover;}
+
+.mission {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    grid-area: 4 / 2 / 5 / 4;
+
+}
+
+.mission h1{
+        background: linear-gradient(91.65deg, #BD9B9B 14.62%, rgba(221, 221, 221, 0) 114.57%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.vision { grid-area: 5 / 1 / 6 / 3; }
+.vision h1{
+    background: linear-gradient(92.53deg, #738AA3 -9.53%, rgba(115, 138, 163, 0) 115.91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+
+}
+
+.vision-image { grid-area: 5 / 3 / 6 / 4;
+    background-image: url("../images/blog_thumbnail.png");
+    background-size: cover;}
+
+.provide1 { grid-area: 3 / 1 / 4 / 2;
+        background: linear-gradient(100.91deg, #B2C0CF 4.3%, rgba(58, 43, 54, 0.47) 108.11%);
+
+    flex-direction: column;
+}
+
+.provide2 { grid-area: 3 / 2 / 4 / 3;
+        background: linear-gradient(100.91deg, #B2C0CF 4.3%, rgba(58, 43, 54, 0.47) 108.11%);
+
+    flex-direction: column;
+
+}
+
+.provide3 { grid-area: 3 / 3 / 4 / 4;
+    background: linear-gradient(100.91deg, #B2C0CF 4.3%, rgba(58, 43, 54, 0.47) 108.11%);
+    flex-direction: column;
+
+}
+/* mission */
+
+
+.provide1 label,
+.provide2 label,
+.provide3 label{
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+
+.provide1,
+.provide2,
+.provide3{
+    color: white;
+}
