@@ -1,29 +1,58 @@
 {%  extends 'base.html' %}
+{%  load static %}
 {%  block content %}
-    <div class="main centered">
 
-            <div class="post-content-container rounded ">
-                <div class="post-text-container">
-                  <div class="username-container">
-                    <p class="posted-by">Posted by @{{ object.user.username}} {{ object.get_date}}</p>
-                  </div>
-                  <div class="post-title-container">
-                    <p class="post-title">
-                        {{ object.title}}
-                    </p>
-                  </div>
+<div class="main centered">
+    <div class="rounded post-content-container ">
+        <a href="{{ object.get_absolute_url }}" class="expand-button">
+            <img src="{%  static 'images/exapnd.svg' %}">
+        </a>
+        <a href="{{ object.get_absolute_url }}" class="like-button">
+            <img src="{%  static 'images/love.svg' %}">
+        </a>
+        <div class="post-top-container">
+
+            <div class="post-author-container">
+                <div class="post-author">
+                    <div class="post-profile-pic-container">
+                        <img class="post-profile-pic" src="{% static 'images/profile_pic_placeholder.svg' %}">
+                    </div>
+                    <div class="post-username">
+                        @{{ post.user.username }}
+                    </div>
+                    <div class="post-time">
+                        {{ post.get_date }}
+                    </div>
+                </div>
             </div>
-                <div class="post-detail-container">
-                    <div class="post-detail">
-                       <p> {{ post.content }}</p>
-                    </div>
+
+            <div class="post-details-container">
+                <div class="post-title-container">
+                    <div class="post-title">{{ post.title }}</div>
                 </div>
-                <div class="post-likes-container">
-                    <div class="post-likes">
-                        Likes: {{ object.likes.count }}
-                    </div>
+                <div class="post-text-container">
+                    <p class="post-text">
+                        {{ post.content }}
+                    </p>
                 </div>
+            </div>
         </div>
+        <br>
+        <div class="post-bottom-container">
+
+            <div class="post-comment-container">
+                <div class="comment-box">
+                    <form >
+                        <input class="rounded personal post-comment-input" type="text" placeholder="What are your thoughts?">
+                        <button id="comment-submit-button" type="submit">Reply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="right">
+        {%  include 'contacts.html' %}
     </div>
 {%  endblock %}
 
