@@ -709,9 +709,13 @@ header {
     margin: 10px 0
 }
 
+.reply img{
+    align-self: center;
+}
+
 .reply{
-    background-color: var(--platinum);
-    padding:10px;
+    background-color: white;
+    padding: 10px;
     border-radius: 30px;
     display: flex;
     align-items: flex-start;
@@ -720,20 +724,27 @@ header {
 
 
 
-.reply-text{
-    padding: 10px;
+.reply-author{
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.reply-author{
+.reply-text{
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+.reply-text-container{
+    padding-left: 10px;
+    align-items: start;
 }
 
 .reply-author-username {
     font-weight: 600;
 }
 
+.reply-author img{
+    max-width: 64px;
+}
 .reply-author-time{
     color: rgb(75, 75, 75);
     font-weight: lighter;

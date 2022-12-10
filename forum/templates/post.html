@@ -54,16 +54,16 @@
             {%  for comment in comments %}
             <div class="reply-container">
                 <div class="reply">
-                    <div class="reply-author-container">
-                        <div class="reply-author">
-                            <img src="{%  static 'images/profile1.svg' %}">
-                            <p class="reply-author-username">@{{ comment.user.username }}</p>
-                            <p class="reply-author-time">{{ comment.get_date}}</p>
-                        </div>
-                    </div>
+                    <img src="{%  static 'images/profile1.svg' %}">
                     <div class="reply-text-container">
+                        <div class="reply-author-container">
+                            <div class="reply-author">
+                                <div class="reply-author-username">@{{ comment.user.username }}</div>
+                                <div class="reply-author-time">{{ comment.get_date}}</div>
+                            </div>
+                        </div>
                         <p class="reply-text">
-                            {{ comment.body}}
+                        {{ comment.body}}
                         </p>
                     </div>
                     <a href="#like" class="reply-like-button">
