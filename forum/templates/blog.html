@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{#css is at styles.css#}
+
+{% block content %}
+    <div class="blog-main">
+        <div class="blog-catalog-container">
+            <div class="blog-catalog">
+                <div class="blog-header-container">
+                    <div class="blog-header">
+                        <h2 class="blog-header-label">
+                            blog
+                        </h2>
+                        <div id="user-profile">
+                            <img alt="user-profile" src="{%  static 'images/profile.svg' %}">
+                            <div id="profile-dropdown">
+                                <div><a href="#path">Profile</a></div>
+                                <div><a href="#path">Settings</a></div>
+                                <div><a href="{% url 'logout' %}">Logout</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-catalog-list-container">
+                    <div class="blog-catalog-list">
+                        {%  for blog in object_list %}
+                            {% include 'blog_article.html' %}
+                        {%  endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{#    <div class="right">#}
+{#    add html here for right panel#}
+{#    This is at the right panel.#}
+{#    </div>#}
+{%  endblock content %}
+
+
+{% block script %}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock script %}

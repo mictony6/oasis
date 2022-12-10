@@ -3,13 +3,14 @@ import json
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LogoutView
 from django.core import serializers
+from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 
 from forum.forms import PostForm, LoginForm, ForumUserForm
-from forum.models import Post, Therapist, Hotline, ForumUser
+from forum.models import *
 
 
 def landing_view(request, *args, **kwargs):
@@ -21,7 +22,7 @@ def landing_view(request, *args, **kwargs):
     return render(request, 'welcome.html', context)
 
 
-def home_view(request,  *args, **kwargs):
+def home_view(request, *args, **kwargs):
     sort_method = request.GET.get("sort_method")
 
     if not request.user.is_authenticated:
@@ -29,10 +30,10 @@ def home_view(request,  *args, **kwargs):
     if sort_method == "date":
         posts = Post.objects.all().order_by("date").reverse()
     else:
-        posts = Post.objects.all().order_by("likes").reverse()
+        posts = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count')
     context = {
         'posts': posts,
-        'sort_method':sort_method,
+        'sort_method': sort_method,
     }
     return render(request, 'home.html', context)
 
@@ -103,7 +104,18 @@ class UserCreateView(CreateView):
     template_name = "register.html"
     success_url = reverse_lazy('login')
 
+
 class PostView(DetailView):
     model = Post
     template_name = "post.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = context["object"]
+        context['comments'] = Comment.objects.all().filter(post=post)
+        return context
+
+
+class BlogPostView(ListView):
+    model = BlogPost
+    template_name = 'blog.html'

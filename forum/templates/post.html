@@ -4,13 +4,11 @@
 
 <div class="main centered">
     <div class="rounded post-content-container ">
-        <a href="{{ object.get_absolute_url }}" class="expand-button">
-            <img src="{%  static 'images/exapnd.svg' %}">
-        </a>
-        <a href="{{ object.get_absolute_url }}" class="like-button">
-            <img src="{%  static 'images/love.svg' %}">
-        </a>
+
         <div class="post-top-container">
+            <a href="#like" class="post-like-button">
+                <img src="{%  static 'images/love.svg' %}">
+            </a>
 
             <div class="post-author-container">
                 <div class="post-author">
@@ -48,6 +46,32 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="replies-container">
+
+        <div class="replies">
+            {%  for comment in comments %}
+            <div class="reply-container">
+                <div class="reply">
+                    <div class="reply-author-container">
+                        <div class="reply-author">
+                            <img src="{%  static 'images/profile1.svg' %}">
+                            <p class="reply-author-username">@{{ comment.user.username }}</p>
+                            <p class="reply-author-time">{{ comment.get_date}}</p>
+                        </div>
+                    </div>
+                    <div class="reply-text-container">
+                        <p class="reply-text">
+                            {{ comment.body}}
+                        </p>
+                    </div>
+                    <a href="#like" class="reply-like-button">
+                        <img src="{%  static 'images/love.svg' %}">
+                    </a>
+                </div>
+            </div>
+            {%  endfor %}
         </div>
     </div>
 </div>

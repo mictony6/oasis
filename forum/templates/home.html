@@ -31,26 +31,36 @@
         </select>
     </div>
     <div class="thread-list ">
-        {% for post in posts %}
 
-        <div class="rounded card ">
-        <a href="{{ post.get_absolute_url }}" class="expand-button">
-            <img src="{%  static 'images/exapnd.svg' %}">
-        </a>
-            <div class="post-top">
-                <div class="post-author">
-                    <div class="user-image">
-                        <img src="{% static 'images/profile_pic_placeholder.svg' %}">
+        {% for post in posts %}
+            <div class="rounded card ">
+            <a href="{{ post.get_absolute_url }}" class="expand-button">
+                <img src="{%  static 'images/exapnd.svg' %}">
+            </a>
+            <div class="post-top-container">
+                <div class="post-author-container">
+                    <div class="post-author">
+                        <div class="post-profile-pic-container">
+                            <img class="post-profile-pic" src="{% static 'images/profile_pic_placeholder.svg' %}">
+                        </div>
+                        <div class="post-username">
+                            @{{ post.user.username|truncatechars:12 }}
+                        </div>
+                        <div class="post-time">
+                            {{ post.get_date }}
+                        </div>
                     </div>
-                    <p class="post-username">@{{ post.user.username }}</p>
-                    <p class="post-time">{{ post.get_date}}</p>
                 </div>
-                <div class="post-content">
-                    <p class="post-title">{{ post.title }}</p>
-                    {% for category in post.category.all %}
-{#                    <h4 class="category">Categories: {{ category.title }}</h4>#}
-                    {%  endfor %}
-                    <p class="post-text">{{ post.content }}</p>
+
+                <div class="post-details-container">
+                    <div class="post-title-container">
+                        <div class="post-title">{{ post.title }}</div>
+                    </div>
+                    <div class="post-text-container">
+                        <p class="post-text">
+                            {{ post.content }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="post-bottom">
@@ -66,9 +76,8 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
-
     </div>
+        {% endfor %}
 </div>
 
 <div class="right">

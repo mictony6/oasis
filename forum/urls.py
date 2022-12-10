@@ -1,7 +1,6 @@
 import django.contrib.auth
 from django.urls import path
 from forum.views import *
-from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', landing_view, name="landing"),
@@ -13,4 +12,5 @@ urlpatterns = [
     path('register/', UserCreateView.as_view(), name='register'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
     path('post/<int:pk>', PostView.as_view(), name='post'),
+    path('blog/', BlogPostView.as_view(), name='blog'),
 ]

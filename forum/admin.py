@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 from django.contrib import admin
-from forum.models import ForumUser, Post, Category, Comment, Therapist, Hotline
+from forum.models import *
 
 
 @admin.register(ForumUser)
@@ -19,6 +19,11 @@ admin.site.register(Category)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'content', 'date')
     list_filter = ('user', 'date', 'category')
+
+@admin.register(BlogPost)
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'content', 'date')
+    list_filter = ('author', 'date', )
 
 
 @admin.register(Comment)

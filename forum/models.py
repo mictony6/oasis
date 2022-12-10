@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.urls import reverse
+from django.utils import timezone
 
 
 class ForumUser(User):
@@ -39,7 +40,6 @@ class Post(models.Model):
     def get_date(self):
         return humanize.naturaltime(self.date)
 
-
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
@@ -61,6 +61,9 @@ class Comment(models.Model):
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.user.get_username())
 
+    def get_date(self):
+        return humanize.naturaltime(self.created_on)
+
 
 class Therapist(models.Model):
     specialties = (
@@ -79,3 +82,20 @@ class Hotline(models.Model):
     name = models.CharField(max_length=128, blank=False)
     address = models.TextField()
     number = models.CharField(max_length=24)
+
+
+class BlogPost(models.Model):
+    author = models.ForeignKey(Therapist, on_delete=models.CASCADE, related_name="posts")
+    title = models.CharField(max_length=90)
+    content = models.TextField(blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def get_date(self):
+        return humanize.naturaltime(self.date)
+
+    class Meta:
+        verbose_name = "blogpost"
+        verbose_name_plural = "blogpost"
+
+    def get_absolute_url(self):
+        return reverse("blogpost", kwargs={"pk": self.pk})
