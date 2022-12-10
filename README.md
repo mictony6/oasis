@@ -10,7 +10,8 @@ Css - forums/static/css
 ## Running Tests
 
 Clone the repository.
-You should install dependencies.
+
+Then should install dependencies.
 ```shell
 pip install -r requirements.txt
 ```
