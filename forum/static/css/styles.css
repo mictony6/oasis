@@ -216,9 +216,10 @@ header {
     border-radius: 5px;
 }
 #helpline-pic{
-    position:absolute;
+    position:absolute ;
     left:30px;
     bottom:120px;
+    z-index: 0;
 }
 
 /*new discussion*/
@@ -660,7 +661,6 @@ header {
     width: 100%;
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .post-bottom-container{
@@ -777,9 +777,14 @@ header {
     z-index: 10;
 }
 
+.reply-like-button:hover svg {
+    color: red;
+}
+
 .post-like-button{
     position: absolute;
-    top:0;
+    top:4%;
+    right: 3%;
     z-index: 10;
 }
 
@@ -1101,11 +1106,15 @@ header {
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+
   }
   .overlay:target {
     visibility: visible;
     opacity: 1;
+      z-index: 2;
   }
+  
+
 
   .popup {
     margin: 70px auto;
@@ -1195,4 +1204,25 @@ header {
 .post-content-input{
     border: solid 1px var(--baby-pink);
 
+}
+
+#back-button{
+    background-color: var(--platinum);
+    text-align: center;
+    border-radius: 30px;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top:2%;
+    left:2%;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+#back-button:hover{
+    background-color: #afa6a6;
+}
+
+#back-button:active{
+    background-color: var(--baby-pink);
 }
