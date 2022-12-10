@@ -41,7 +41,9 @@
             <div class="post-comment-container">
                 <div class="comment-box">
                     <form >
-                        <input class="rounded personal post-comment-input" type="text" placeholder="What are your thoughts?">
+                        <label>
+                            <input name="comment" class="rounded personal post-comment-input" type="text" placeholder="What are your thoughts?">
+                        </label>
                         <button id="comment-submit-button" type="submit">Reply</button>
                     </form>
                 </div>
@@ -66,7 +68,7 @@
                         {{ comment.body}}
                         </p>
                     </div>
-                    <a href="#like" class="reply-like-button">
+                    <a href="#like" class=" reply-like-button">
                         <img src="{%  static 'images/love.svg' %}">
                     </a>
                 </div>

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from forum.models import Post, ForumUser
+from forum.models import Post, ForumUser, Comment
 
 
 class PostForm(forms.ModelForm):
@@ -74,3 +74,14 @@ class LoginForm(forms.Form):
         'placeholder': 'Password',
     })
                                )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = [
+            'user',
+            'post',
+            'body',
+            'active'
+        ]

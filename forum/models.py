@@ -55,6 +55,7 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 
+
     class Meta:
         ordering = ['created_on']
 
@@ -63,6 +64,8 @@ class Comment(models.Model):
 
     def get_date(self):
         return humanize.naturaltime(self.created_on)
+
+
 
 
 class Therapist(models.Model):

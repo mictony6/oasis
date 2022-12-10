@@ -5,7 +5,7 @@
 <div class=" main ">
     <div id="new-post">
         <a class="fake-input" href="{% url 'new_post' %}">
-            <input class="rounded personal" type="text" value="What are you thinkin?">
+                <input class="rounded personal" type="text" value="What are you thinkin?">
         </a>
         <a id="new-post-button" href="{% url 'new_post' %}">+</a>
         <div id="user-profile"  ><img  src="{% static 'images/profile.svg' %}">
@@ -71,7 +71,9 @@
 
                 <div class="comment-box">
                     <form>
-                        <input class="rounded personal" type="text" placeholder="What are your thoughts?">
+                        <label>
+                            <input class="rounded personal" type="text" placeholder="What are your thoughts?">
+                        </label>
                     </form>
                 </div>
             </div>

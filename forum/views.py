@@ -1,15 +1,11 @@
-import json
-
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LogoutView
-from django.core import serializers
 from django.db.models import Count
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView
 
-from forum.forms import PostForm, LoginForm, ForumUserForm
+from forum.forms import PostForm, LoginForm, ForumUserForm, CommentForm
 from forum.models import *
 
 
