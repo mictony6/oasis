@@ -221,7 +221,44 @@ header {
     bottom:16%;
     z-index: 0;
 }
+@media only screen and (max-height: 800px){
+header{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(77, 77, 77, 0.35);}
+.nav {
+    display: flex;
+    height: 40%;
+    }
+    #helpline-pic{
+        display: none;
 
+    }
+    .site-helpline{
+    position: relative;
+        margin-top: 0;
+    }
+
+.gradient-box{
+        /* Rectangle 6 */
+    width: 200px;
+    height: 250px;
+    background: linear-gradient(180deg, #EEEEEE 0%, rgba(234, 231, 226, 0) 100%);
+    border-radius: 45px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 25%;
+}
+}
 /*new discussion*/
 
 #new-post{
