@@ -217,8 +217,8 @@ header {
 }
 #helpline-pic{
     position:absolute ;
-    left:30px;
-    bottom:120px;
+    left:25%;
+    bottom:16%;
     z-index: 0;
 }
 
@@ -1063,15 +1063,6 @@ header {
 
 
 /* POP UP CONTACT */
-
-  /*h1 {*/
-  /*  text-align: center;*/
-  /*  font-family: Tahoma, Arial, sans-serif;*/
-  /*  color: #06D85F;*/
-  /*  margin: 80px 0;*/
-  /*}*/
-
-
 
   .box {
     width: 40%;
