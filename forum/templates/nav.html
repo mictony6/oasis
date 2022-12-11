@@ -27,65 +27,20 @@
                 <div class="popup">
                     <h2>VAWC Hotlines</h2>
                     <a class="close" href="#">&times;</a>
-                    <div class="contact-information">
+                    {% for hotline in hotlines %}
+                        <div class="contact-information">
                         <div class="contact-office">
-                            Provincial Social Welfare & Development Office
+                            {{ hotline.name}}
                         </div>
                         <div class="contact-location">
-                            <em>Provincial Capitol Building, Rustico Kalibo</em>
+                            <em>{{ hotline.address}}</em>
                         </div>
-                        <div class="contact-number">
-                            (036) 268-3426
-                        </div>
-                    </div>
+                            <div class="contact-number" >
+                                <a href="tel:{{ hotline.number }}" >{{hotline.number}}</a></div>
 
-                    <div class="contact-information">
-                        <div class="contact-office">
-                            Women  & Children Protection Unit
-                        </div>
-                        <div class="contact-location">
-                            <em>Angel Salazar Memorial General Hospital</em>
-                        </div>
-                        <div class="contact-number">
-                            (036) 268-3426
-                        </div>
                     </div>
-
-                    <div class="contact-information">
-                        <div class="contact-office">
-                            Public Attorney’s Office
-                        </div>
-                        <div class="contact-location">
-                            <em>Hall of Justice, San Miguel, Jordan</em>
-                        </div>
-                        <div class="contact-number">
-                            (036) 268-3426
-                        </div>
-                    </div>
-
-                    <div class="contact-information">
-                        <div class="contact-office">
-                            Provincial Social Welfare & Development Office
-                        </div>
-                        <div class="contact-location">
-                            <em>Provincial Capitol Building, Rustico Kalibo</em>
-                        </div>
-                        <div class="contact-number">
-                            (036) 268-3426
-                        </div>
-                    </div>
-
-                    <div class="contact-information">
-                        <div class="contact-office">
-                            Women  & Children Protection Unit
-                        </div>
-                        <div class="contact-location">
-                            <em>Angel Salazar Memorial General Hospital</em>
-                        </div>
-                        <div class="contact-number">
-                            (036) 268-3426
-                        </div>
-                    </div>
+                        {%  endfor %}
+                </div>
                 </div>
             </div>
         </div>

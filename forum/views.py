@@ -31,6 +31,7 @@ def home_view(request, *args, **kwargs):
     context = {
         'posts': posts,
         'sort_method': sort_method,
+        'hotlines':Hotline.objects.all(),
     }
     return render(request, 'home.html', context)
 
@@ -43,26 +44,15 @@ def new_post_view(request, *args, **kwargs):
         form.save()
         return redirect('home')
     context = {
-        'form': form
+        'form': form,
+        'hotlines': Hotline.objects.all(),
     }
     return render(request, 'new_post.html', context)
 
 
-# class NewPost(CreateView):
-#     model = Post
-#     template_name = 'new_post.html'
-#     success_url = reverse_lazy('home')
-#     fields = ('title', 'content', 'category', 'user')
-#
-#     def form_valid(self, form):
-#         if self.request.user.is_authenticated:
-#             form.instance.user = self.request.user.forumuser
-#         return super().form_valid(form)
-
-
 def about_view(request, *args, **kwargs):
     context = {
-
+        'hotlines': Hotline.objects.all(),
     }
     return render(request, 'about.html', context)
 
@@ -118,9 +108,14 @@ class PostView(DetailView):
         context = super().get_context_data(**kwargs)
         post = context["object"]
         context['comments'] = Comment.objects.all().filter(post=post)
+        context['hotlines'] = Hotline.objects.all()
         return context
 
 
 class BlogPostView(ListView):
     model = BlogPost
     template_name = 'blog.html'
+
+    extra_context = {
+        'hotlines' : Hotline.objects.all(),
+    }
