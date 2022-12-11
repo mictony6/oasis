@@ -221,7 +221,7 @@ header {
     bottom:16%;
     z-index: 0;
 }
-@media only screen and (max-height: 800px){
+@media only screen and (max-height: 600px){
 header{
     position: fixed;
     display: flex;
