@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-crik1@$het#bvd#88g6#%kf4juk#v_dm)#sl4o8o+11)efj%dn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'safespace-oasis.azurewebsites.net','oasis-wuzb.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'safespace-oasis.azurewebsites.net',
+                 'oasis-wuzb.onrender.com', 'web-production-2a9d.up.railway.app']
 
 
 # Application definition
@@ -148,8 +149,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -164,7 +163,8 @@ SECRET_KEY = 'django-insecure-crik1@$het#bvd#88g6#%kf4juk#v_dm)#sl4o8o+11)efj%dn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'safespace-oasis.azurewebsites.net','oasis-wuzb.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'safespace-oasis.azurewebsites.net', 'oasis-wuzb.onrender.com']
 
 
 # Application definition
