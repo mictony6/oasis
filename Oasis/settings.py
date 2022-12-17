@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-crik1@$het#bvd#88g6#%kf4juk#v_dm)#sl4o8o+11)efj%dn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'safespace-oasis.azurewebsites.net',
-                 'oasis-wuzb.onrender.com', 'web-production-2a9d.up.railway.app']
+ALLOWED_HOSTS = ['web-production-2a9d.up.railway.app', 'safespace-oasis.azurewebsites.net',
+                 'oasis-wuzb.onrender.com']
 
 
 # Application definition
